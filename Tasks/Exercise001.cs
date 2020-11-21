@@ -8,6 +8,7 @@ using System.Collections.Generic;
 
 // Good luck!
 
+//Changed namespace to "my App" instead of TechReturners.Tasks - as I ran it like this on my Desktop .Net (please see files submitted in Google Classroom with screenshot)
 namespace myApp
 {
   class Program
