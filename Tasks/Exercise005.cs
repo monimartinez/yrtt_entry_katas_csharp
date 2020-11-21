@@ -21,14 +21,73 @@ using System.Collections.Generic;
 // Example
 // wave("hello") => ["Hello", "hEllo", "heLlo", "helLo", "hellO"]
 
-namespace TechReturners.Tasks
+//Changed namespace to "Test" instead of TechReturners.Tasks (created another project) as I ran it like this on my Desktop .Net (please see files submitted in Google Classroom with screenshot)
+namespace Test
 {
-    public class Exercise005
+    class Program
     {
-        public static List<string> Wave(string str)
-        {
-            throw new NotImplementedException();
-        }
-    }
-}
 
+    // Function that takes
+    //string and zigzag offset 
+    static void fun(string s, int n) 
+    { 
+	 // if offset is 1 
+    	if (n == 1)  
+       
+    { 
+        // Simply print the  
+        // string and return 
+        Console.Write(s);              
+        return; 
+    } 
+
+    // Get length of the string 
+    int len = s.Length;  
+      
+    // Create a 2d character array 
+    char[,] a = new char[len,len]; 
+    char[] c = s.ToCharArray(); 
+      
+    // for counting the 
+    // rows of the ZigZag 
+    int row = 0;          
+    bool down = true; 
+      
+    for (int i = 0; i < len; i++) 
+    { 
+        // put characters  
+        // in the matrix 
+        a[row, i] = c[i];  
+          
+        // You have reached the bottom 
+        if (row == n - 1) 
+            down = false;      
+        else if (row == 0) 
+            down = true;  
+              
+        if(down) 
+            row++; 
+        else
+            row--; 
+    } 
+      
+    // Print the Zig-Zag String 
+    for (int i = 0; i < n; i++) 
+    {  
+        for (int j = 0; j < len; j++) 
+        { 
+            Console.Write(a[i, j] + " "); 
+        } 
+        Console.Write("\n"); 
+    } 
+    } 
+      
+    // Driver Code 
+    public static void Main()  
+    { 
+        string s = "HellohElloheLloHelLoHellO"; 
+        int n = 3; 
+        fun(s, n); 
+    } 
+} 
+}
