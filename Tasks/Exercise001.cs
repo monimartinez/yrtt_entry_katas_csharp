@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 // In this Kata, you will be given an array of numbers in which two numbers occur once and the rest occur only twice. 
@@ -8,13 +8,35 @@ using System.Collections.Generic;
 
 // Good luck!
 
-namespace TechReturners.Tasks
+namespace myApp
 {
-    public class Exercise001
-    {
-        public static int Singles(List<int> source)
-        {
-            throw new NotImplementedException();
-        }
-    }
+  class Program
+{
+// Function to find the number
+static int singleNumber(int[] nums, int n) 
+    { 
+        Dictionary<int,int> m = new Dictionary<int,int>(); 
+        long sum1 = 0, sum2 = 0; 
+        for (int i = 0; i < n; i++) 
+        { 
+            if (!m.ContainsKey(nums[i])) 
+            { 
+                sum1 += nums[i]; 
+                m.Add(nums[i], 1); 
+            } 
+            sum2 += nums[i]; 
+        } 
+  
+        // Applying formula 
+        return (int)(2 * (sum1) - sum2);  
+    } 
+
+    // Driver code 
+  public static void Main(String []args) 
+    { 
+        int[] arr = {4, 5, 7, 5, 4, 8}; 
+	int n = arr.Length;
+        Console.WriteLine("The sum of the numbers that occur only once is: " + singleNumber(arr,n)); 
+      } 
+   }  
 }
